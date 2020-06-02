@@ -70,7 +70,7 @@
              * @param {Array} files Array of dropped files. Only the images from this list will be processed.
              * @param {Object} editor The current editor instance
              */
-             _handleFiles: function _handleFiles(files, editor) {
+            _handleFiles: function(files, editor) {
                 var file;
                 var i;
 
@@ -79,6 +79,7 @@
 
                 for (i = 0; i < files.length; i++) {
                     file = files[i];
+                    
                     if (file.type.indexOf('image') === 0) {
                         imageFiles.push(file);
                     } else if (file.type === "application/pdf") {
