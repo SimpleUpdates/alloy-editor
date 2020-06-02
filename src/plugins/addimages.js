@@ -75,17 +75,21 @@
                 var i;
 
                 var imageFiles = [];
+                var otherFiles = [];
 
                 for (i = 0; i < files.length; i++) {
                     file = files[i];
 
                     if (file.type.indexOf('image') === 0) {
                         imageFiles.push(file);
+                    } else if (file.type === "application/pdf") {
+                        otherFiles.push(file);
                     }
                 }
 
                 var result = editor.fire('beforeImageAdd', {
-                    imageFiles: imageFiles
+                    imageFiles: imageFiles,
+                    otherFiles: otherFiles
                 });
 
                 if (!!result) {
