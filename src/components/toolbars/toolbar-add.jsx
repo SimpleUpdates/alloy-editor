@@ -93,7 +93,12 @@ class ToolbarAdd extends React.Component {
 		}
 
 		const buttons = this._getButtons();
-		const className = this._getToolbarClassName();
+		var className = this._getToolbarClassName();
+		var containerClassName = "ae-container";
+		if(this.props.renderExclusive && buttons.length > 1) {
+			className += " su_bootstrap_safe popover in pane-grid-popover small";
+			containerClassName += " pane-grid small";
+		}
 
 		return (
 			<div
@@ -104,7 +109,8 @@ class ToolbarAdd extends React.Component {
 				onKeyDown={this.handleKey.bind(this)}
 				role="toolbar"
 				tabIndex="-1">
-				<div className="ae-container">{buttons}</div>
+				<div className={containerClassName}>{buttons}</div>
+				<div className="arrow"></div>
 			</div>
 		);
 	}
